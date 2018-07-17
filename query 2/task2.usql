@@ -1,0 +1,26 @@
+@searchlog = 
+    EXTRACT tcs_no  int,
+        main    string,
+        midblock_route  string,
+        side_one_route    string,
+        side_two_route    string,
+        activation_date DateTime,
+        latitude    float,
+        longitude   float,
+        count_date  DateTime,
+        peak_eight_hr_vehicle_volume    int,
+        peak_eight_hr_pedestrian_volume int
+    FROM "/traffic_data/data.csv"
+    USING Extractors.Csv(encoding: Encoding.UTF8,skipFirstNRows:1);
+
+OUTPUT @searchlog 
+    TO "/output/toronto-u-sql.csv"
+    USING Outputters.Csv(outputHeader: true);
+
+@task2 =
+    SELECT main, (peak_eight_hr_vehicle_volume + peak_eight_hr_pedestrian_volume) AS busy_peak
+    FROM @searchlog WHERE ((DateTime.Now - count_date).TotalDays/365) >= 5 ORDER BY busy_peak DESC FETCH 10 ROWS;
+    
+OUTPUT @task2
+TO "/output/query-two.csv"
+USING Outputters.Csv(outputHeader: true);
