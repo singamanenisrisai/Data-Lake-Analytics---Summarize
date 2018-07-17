@@ -1,14 +1,14 @@
 # Data-Lake-Analytics---Summarize
 Using Data Lake Analytics to capture and analyze real time traffic data set and summarize findings
 
-## Tool Selection
+### Tool Selection
 Tableau Desktop is used as visual analytical tool. We choose Tableau over other analytical tools in the market because of its user-friendly interface and it comes with free premium access for students. Tableau allows to connect online or extract data from number of different data sources to import and visualize data easily. Data cleaning can be done on the interface directly with simple modify and filter options. Tableau supports advanced collaboration features which include group analytics that guarantee all the team members are on the same page.
 “Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data”. We write queries to transform data and extract valuable insights. The dial for power required can be set to handle jobs of any scale instantly. It is also cost-effective because we pay for job and only when it is running. The other capabilities include dynamic scaling and works with all Azure data such as Storage blocks, Warehouse, SQL databases etc... Data Lake Analytics includes U-SQL query language, which is simple and familiar to SQL comes with extensive power of C# where, we can write the functions in the programming language and use them in U-SQL. 
 
-## Data Loading
+### Data Loading
 As per the requirement in the assignment, a dataset from Toronto government’s website is downloaded locally in the csv format. Data cleaning is performed manualy from the CSV file which involved changing null values to nullable and data type changes, proper and meaningful naming for the columns, and date format is changed as required. Lastly, data is uploaded into the Data Lake Analytics from the dashboard and the data is changed into U-SQL format using U-SQL parse function script.
 
-##Output
+### Output
 Query 1 subjects to visualize the dataset between volume of vehicles for all the years present in the dataset for every single location. Query has been written to extract the required columns from the entire data set and Line graph is used to visualize the extracted output csv. From the visualisation graph it was observed that ‘WILLIAM R ALLEN-RD’ has the highest average volume of vehicles with the value 29797 and ‘OLD FINCH AVE’ has the lowest average volume of vehicles with the value 1081.
 Query 2 subjects to extract top 10 traffic locations from the data set which are busiest during the peak hours from past 5 years of data. Query has been written to extract the required data set and histogram chart is used to visualize the output csv. From the visualisation graph it was observed that ‘BAY ST’ is the top busiest street with value 48507 and ‘YONGE ST’ is the 10th location with value 42578.
 Query 3 subjects to extract sum of vehicles and pedestrians traffic count for all available years in the dataset. To get the desired output, query is written to extract complete traffic count for every year. On the extracted output csv, histogram bar chart is plotted with different colours for years. From the visualisation graph it was observed that 2016 has the highest volume of vehicles and pedestrians with value of 10 million and 2006 has the lowest volume of vehicles and pedestrians with value 28616.
